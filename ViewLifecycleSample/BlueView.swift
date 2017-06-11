@@ -11,25 +11,31 @@ import UIKit
 class BlueView: UIView {
     fileprivate let color = UIColor.init(red: 41/255, green: 128/255, blue: 185/255, alpha: 1.0)
     
+    // プロパティの初期化
+    fileprivate func configure() {
+        backgroundColor = color
+        translatesAutoresizingMaskIntoConstraints = false
+    }
+    
     /// イニシャライザ
     init() {
         print(NSStringFromClass(type(of:self)).components(separatedBy: ".")[1] + ":" + #function)
         super.init(frame: CGRect.zero)
-        backgroundColor = color
+        configure()
     }
     
     /// イニシャライザ
     override init(frame: CGRect) {
         print(NSStringFromClass(type(of:self)).components(separatedBy: ".")[1] + ":" + #function)
         super.init(frame: frame)
-        backgroundColor = color
+        configure()
     }
     
     /// イニシャライザ（StoryBoardやIntefaceBuilderでの生成）
     required init?(coder aDecoder: NSCoder) {
         print(NSStringFromClass(type(of:self)).components(separatedBy: ".")[1] + ":" + #function)
         super.init(coder: aDecoder)
-        backgroundColor = color
+        configure()
     }
     
     /// 制約の更新
